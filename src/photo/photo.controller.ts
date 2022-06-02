@@ -1,11 +1,5 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
+  Body, Controller, Delete, Get, Param, Post, Put
 } from '@nestjs/common';
 import { Photo } from './entities/photo.entity';
 import { PhotoService } from './photo.service';
@@ -29,7 +23,7 @@ export class PhotoController {
     return this.photoService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updatePhotoDto: Photo) {
     return this.photoService.update(+id, updatePhotoDto);
   }
